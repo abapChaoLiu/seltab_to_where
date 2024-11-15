@@ -349,12 +349,12 @@ CLASS ZCL_ABAP_SELTAB_TO_WHERE IMPLEMENTATION.
 
   METHOD _sql_operator.
     CASE iv_selop.
-      WHEN: 'EQ'. rv_sqlop = |EQ { _mv_quote_l }%LOW%{ _mv_quote_r }|.
-      WHEN: 'NE'. rv_sqlop = |NE { _mv_quote_l }%LOW%{ _mv_quote_r }|.
-      WHEN: 'GE'. rv_sqlop = |GE { _mv_quote_l }%LOW%{ _mv_quote_r }|.
-      WHEN: 'LE'. rv_sqlop = |LE { _mv_quote_l }%LOW%{ _mv_quote_r }|.
-      WHEN: 'GT'. rv_sqlop = |GT { _mv_quote_l }%LOW%{ _mv_quote_r }|.
-      WHEN: 'LT'. rv_sqlop = |LT { _mv_quote_l }%LOW%{ _mv_quote_r }|.
+      WHEN: 'EQ'. rv_sqlop = |= { _mv_quote_l }%LOW%{ _mv_quote_r }|.
+      WHEN: 'NE'. rv_sqlop = |<> { _mv_quote_l }%LOW%{ _mv_quote_r }|.
+      WHEN: 'GE'. rv_sqlop = |>= { _mv_quote_l }%LOW%{ _mv_quote_r }|.
+      WHEN: 'LE'. rv_sqlop = |<= { _mv_quote_l }%LOW%{ _mv_quote_r }|.
+      WHEN: 'GT'. rv_sqlop = |> { _mv_quote_l }%LOW%{ _mv_quote_r }|.
+      WHEN: 'LT'. rv_sqlop = |< { _mv_quote_l }%LOW%{ _mv_quote_r }|.
 
       WHEN: 'CP'. rv_sqlop = |LIKE { _mv_quote_l }%LOW%{ _mv_quote_r }|.
       WHEN: 'NP'. rv_sqlop = |NOT LIKE { _mv_quote_l }%LOW%{ _mv_quote_r }|.
